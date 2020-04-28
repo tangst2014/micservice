@@ -1,2 +1,30 @@
 <!--miniprogram/pages/index/index.wxml-->
-<text>miniprogram/pages/index/index.wxml</text>
+<view class="search-section" bindtap="onSearchFn">
+    <view class="search-pancel">
+      <input  bindinput="wxSearchInput" value="{{wxSearchData.value}}" 
+      class="search-input" placeholder="搜索" disabled="true" confirm-type="search"/>
+      <image src="/images/icon/sacn.png"></image>
+    </view>
+</view>
+
+<view class="page-section-spacing">
+  <scroll-view class="scroll-view_H" scroll-x="true" 
+  scroll-with-animation="true" style="width: 100%">
+    <view class="scroll-view-item_H demo-text-1" wx:for="{{users}}" wx:key="index" 
+    wx:for-item="user"> 
+    <view class="scroll-view-item-user {{selectid==index?'selected':'unselected'}}" data-index="{{index}}" bindtap="onUser">{{user.myName}}</view></view>
+  </scroll-view>
+</view>
+
+<view wx:for="{{users}}" wx:key="index" wx:for-item="info" hidden="{{showitem==index?false:true}}">
+    <view class="page-info">
+      <view class="page-info-image"><image src="{{info.avatarUrl}}"></image></view>
+      <view class="page-info-content">
+        <view class="page-info-content-task">{{info.nickName}}</view>
+        <view class="page-info-content-score">{{info.openid}}</view>
+      </view>
+    </view>
+</view>
+
+<view bindtap="onAddTask">task</view>
+

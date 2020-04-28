@@ -1,1 +1,79 @@
 /* miniprogram/pages/index/index.wxss */
+.search-section{
+  height: 100%;
+  border-top: 1px #eee solid;
+  margin: 20rpx;
+
+}
+.search-section .search-pancel{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.search-section .search-pancel input{
+  flex: 8; 
+  background-color: #eee;
+  padding:  5px 0 5px 10px;
+  font-size: 30rpx;
+}
+.search-section .search-pancel image{
+  width: 50rpx;
+  height: 50rpx;
+
+}
+.scroll-view_H{
+  white-space: nowrap;
+}
+.scroll-view-item{
+  height: 100rpx
+}
+.scroll-view-item_H{
+  display: inline-block;
+  width: 183rpx;
+  font-size: 30rpx;
+  border: 1px solid rgb(129, 126, 126);
+  margin: 0 20rpx;
+}
+.scroll-view-item-user{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx 0;
+
+}
+.selected{
+  background-color: rgb(233, 154, 6);
+  color: white;
+}
+.unselected{
+  background-color: white;
+  color: black;
+}
+.page-info{
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx;
+
+}
+.page-info .page-info-image{
+  display: flex;
+}
+.page-info .page-info-image image{
+  width: 220rpx;
+  height: 230rpx;
+}
+.page-info .page-info-content{
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 10rpx;
+  font-size: 35rpx;
+  overflow: ellipsis;
+  word-break: break-word;
+}
+.page-info .page-info-content .page-info-content-task{
+  display: flex;
+}
+.page-info .page-info-content .page-info-content-score{
+  display: flex;
+}

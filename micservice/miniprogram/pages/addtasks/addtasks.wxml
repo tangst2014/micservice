@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="tasks" wx:if="{{!submitting}}">
+  <view class="tasks-all">
+    <view class="tasks-all-title">
+      <text>问题清单</text>
+    </view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section">
+        <view class="section__title">部门：</view>
+        <input name="department" placeholder="部门" />
+      </view>
+      
+      
+      <view class="section">
+        <view class="section__title">问题描述：</view>
+        <textarea name="tasks" maxlength="{{-1}}" placeholder="问题描述"></textarea>
+      </view>
+      <view class="tasks-all-btn">
+        <button formType="reset" style="width:98px;min-height:none;">清空</button>
+        <button formType="submit" style="width:98px;min-height:none;">提交</button>
+      </view>
+    </form>
+
+  </view>
+</view>

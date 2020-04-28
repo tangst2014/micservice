@@ -1,20 +1,51 @@
 // miniprogram/pages/index/index.js
+const app = getApp()
+const db = wx.cloud.database()
+const staff = db.collection('staff')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    users:[],
+    selectid:0,
+    showitem:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this
+   
+    staff.get()
+    .then(res=>{
+      console.log(res.data)
+      that.setData({
+        users: res.data,
+      })
+    })
   },
-
+  onSearchFn: function () {
+    wx.navigateTo({
+      url: '/pages/wxSearch/wxSearch',
+    })
+  },
+  onUser:function(e){
+    var index = e.currentTarget.dataset.index
+    this.setData({
+      selectid: index,
+      showitem: index,
+    })
+  },
+  onAddTask: function () {
+    setTimeout(function(){
+      wx.navigateTo({
+        url: '/pages/addtasks/addtasks',
+      })
+    },100)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

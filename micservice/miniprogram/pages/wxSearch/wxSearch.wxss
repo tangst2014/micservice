@@ -1,0 +1,115 @@
+.search-section{
+  height: 100%;
+  border-top: 1px #eee solid;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 20rpx;
+
+}
+.search-section .search-pancel{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.search-section .search-pancel input{
+  flex: 8; 
+  background-color: #eee;
+  padding: 5px 0 5px 10px;
+  font-size: 30rpx;
+}
+.search-section .search-pancel button{
+  border: none !important;
+  color: cornflowerblue !important;
+
+}
+
+/* miniprogram/pages/assetDetail/assetDetail.wxss */
+
+.tag-title-borrow{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(109, 107, 107);
+  font-size: 35rpx;
+  font-weight: bold;
+  margin: 40rpx 40rpx;
+
+}
+.tag-title-borrow image{
+  width: 50rpx;
+  height: 50rpx;
+
+}
+
+/* 统计 */
+
+.index-content{
+  display: flex;
+  flex-direction: column;
+  margin: 0 40rpx;
+}
+.index-content .content{
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  margin: 12rpx 0;
+  padding: 0 10rpx;
+  position: relative;
+
+}
+.index-content .content .title{
+  font-weight: bold;
+  font-size: 35rpx;
+}
+.index-content .content .detaival{
+  font-size: 35rpx;
+  margin: 19rpx 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.index-content .content .detaival .myuserInfo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.index-content .content .detaival .myuserInfo image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+
+.index-content .detaival .out{
+  color: blue;
+
+}
+.index-content .detaival .devlists{
+  display: flex;
+  flex-direction: column;
+}
+.index-content .detaival .devlists .type{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+
+}
+.index-content .detaival .devlists .lists{
+  display: flex;
+  flex-direction: row;
+  margin-left: 12rpx;
+}
+.index-content .detaival .devlists .lists text{
+  margin-left: 12rpx;
+}
+.indexshow{
+  font-size: 35rpx;
+  margin: 40rpx 40rpx;
+  color: rgb(107, 106, 106);
+}
+.loading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 21px 0;
+  font-size: 35rpx;
+
+}

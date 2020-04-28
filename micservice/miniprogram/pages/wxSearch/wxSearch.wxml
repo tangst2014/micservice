@@ -1,0 +1,84 @@
+<!--miniprogram/pages/wxSearch/wxSearch.wxml-->
+<view class="search-section">
+  <view class="search-pancel">
+    <input  bindinput="wxSearchInput" value="{{wxSearchData.value}}" class="search-input" placeholder="搜索历史记录" focus="{{focus}}" confirm-type="search"/>
+    <button class="search-button" bindtap="onSearchFn" size="mini" plain="true">搜索</button>
+  </view>
+</view>
+
+<block wx:if="{{!indexshow}}">
+
+<block wx:if="{{loadfinish}}">
+
+<!-- 近期借出 -->
+<view class="tag-title-borrow" bindtap="onLivingPickUp">
+<text>近期借出 </text>
+<view> <image src="/images/icon/down.png"></image></view>
+</view>
+<view class="index-content" wx:if="{{!isLivingPickUp}}">
+  <block  wx:if="{{livingLists.length>0}}">
+  <view wx:for="{{livingLists}}" wx:key="index" class="content">
+    <view class="title">活动：{{item.title}}</view>
+    <view class="detaival">
+      <view class="name myuserInfo" wx:if="{{item.userBorrowInfo.avatarUrl}}">
+        <image src="{{item.userBorrowInfo.avatarUrl}}"></image>
+        {{item.userBorrowInfo.nickName}}
+      </view>
+      <view class="name">借用人：{{item.name}}</view>
+      <view class="time">借用时间：{{item.time}}</view>
+      <view wx:for="{{item.devlists}}" wx:key="index" class="devlists">
+          <view class="type">{{item.type}}:</view>
+          <view class="lists">
+            <block wx:for="{{item.lists}}" wx:key="index" >
+              <text>{{item.product}}</text>
+            </block> 
+          </view>
+      </view>
+    </view>
+  </view>
+  </block>
+<view wx:else>近期无借出</view>
+</view>
+<view wx:else class="index-content">共{{livingLists.length}}条近期记录</view>
+
+<view class="tag-title-borrow" bindtap="onPickUp">
+<text>历史记录 </text>
+<view> <image src="/images/icon/down.png"></image></view>
+</view>
+<view class="index-content" wx:if="{{!isPickUp}}">
+  <view wx:for="{{AnalyseData}}" wx:key="index" class="content">
+    <view class="title">活动：{{item.title}}</view>
+    <view class="detaival">
+      <view class="name myuserInfo" wx:if="{{item.userBorrowInfo.avatarUrl}}">
+        <image src="{{item.userBorrowInfo.avatarUrl}}"></image>
+        {{item.userBorrowInfo.nickName}}
+      </view>
+      <view class="name">借用人：{{item.name}}</view>
+      <view class="time">借用时间：{{item.time}}</view>
+      <view class="time">归还时间：{{item.backTime}}</view>
+
+      <view wx:for="{{item.devlists}}" wx:key="index" class="devlists">
+          <view class="type">{{item.type}}:</view>
+          <view class="lists">
+            <block wx:for="{{item.lists}}" wx:key="index" >
+              <text>{{item.product}}</text>
+            </block> 
+          </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:else class="index-content">共{{AnalyseData.length}}条历史记录</view>
+</block>
+
+</block>
+
+<block wx:if="{{indexshow}}">
+    <view class="indexshow">可输入产品名称、借用人名字信息查询</view>
+</block>
+<view wx:if="{{!loadfinish}}" style="display: flex;flex-direction: column;width:100%;height:200rpx;align-items: center;margin-top: 15rpx;background-color: rgb(251,251,251);">
+  <image src="/images/icon/loading.gif" mode="aspectFill" style="width:100rpx;height:100rpx;"></image>
+  <text style="font-size:25rpx;color:rgb(151, 150, 150)">走哪播拼命加载中...</text>
+</view>
+<view class="loading" hidden="{{loadMore}}">正在载入...</view>
+ 

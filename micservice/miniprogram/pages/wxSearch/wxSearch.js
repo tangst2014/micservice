@@ -3,7 +3,7 @@ var last_value = ''
 var timer = null
 const db = wx.cloud.database()
 const _ = db.command
-const task = db.collection('task')
+const tasks = db.collection('tasks')
 const livingHistory = db.collection('livingHistory')
 const app = getApp()
 
@@ -19,14 +19,11 @@ Page({
     loadMore: true, //"上拉加载"的变量，默认true，隐藏  
     result:[],
     loadfinish: true,
-    livingLists: [],
+    userEvalute:[],
     AnalyseData:[],
     currentPage: 0, // 当前第几页,0代表第一页 
     pageSize: 10, //每页显示多少数据 
-    isLiving:true,
-    isLivingPickUp:false,
-    isPickUp: false,
-    indexshow:true,
+
   },
 
   /**
@@ -39,7 +36,6 @@ Page({
   onSearchFn: function (e) {  
     var that = this
     that.setData({
-      indexshow: false,
       loadfinish: false,
       AnalyseData: [], // 清空
       currentPage: 0, // 当前第几页,0代表第一页 
@@ -74,18 +70,8 @@ Page({
     lasttime = timer  //最后一次计时
 
   },
-  onLivingPickUp: function () {
-    var isLivingPickUp = !this.data.isLivingPickUp
-    this.setData({
-      isLivingPickUp: isLivingPickUp
-    })
-  },
-  onPickUp: function () {
-    var isPickUp = !this.data.isPickUp
-    this.setData({
-      isPickUp: isPickUp
-    })
-  },
+
+
   onGetAnalyseData(product, reachbottom = false) {
     var that = this
     var key = product
@@ -95,7 +81,7 @@ Page({
         currentPage: that.data.currentPage + 1
       })
     }
-    task
+    tasks
       .where(
         _.or([{
             bkstaff: db.RegExp({
@@ -124,8 +110,9 @@ Page({
         ])
       ).get({
         success: function (res) {
+          console.log('search',res.data)
           that.setData({
-            livingLists: res.data,
+            userEvalute: res.data,
             loadfinish: true,
           })
         }

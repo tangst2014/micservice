@@ -47,6 +47,7 @@ Page({
         endtime: '',
         bkstaff: '',
         feedback: '',
+        tasks_evalute:{},
       },
       success: res => {
         //  console.log('调用[云函数]成功 ', res)

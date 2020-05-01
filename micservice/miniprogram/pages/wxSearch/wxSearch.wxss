@@ -23,82 +23,65 @@
 
 }
 
-/* miniprogram/pages/assetDetail/assetDetail.wxss */
 
-.tag-title-borrow{
+.userEval{
+  margin: 20rpx 20rpx;
+  line-height: 60rpx;
+
+}
+.userEval .userEvalutes{
+  margin: 30rpx 0;
+}
+
+.userEval .userEvalutes .userEvalutes-tasks-evalute{
+  display: flex;
+  flex-direction: column;
+}
+.userEval .userEvalutes .userEvalutes-tasks-evalute .star{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  border-bottom: 2px solid rgb(109, 107, 107);
-  font-size: 35rpx;
-  font-weight: bold;
-  margin: 40rpx 40rpx;
+  align-items: center;
 
 }
-.tag-title-borrow image{
-  width: 50rpx;
-  height: 50rpx;
-
+.userEval .userEvalutes .userEvalutes-tasks-evalute .star image{
+  width: 224rpx;
+  height: 33rpx;
 }
 
-/* 统计 */
-
-.index-content{
+.userEval .userEvalutes .userEvalutes-tasks-evalute .hotevalute{
   display: flex;
-  flex-direction: column;
-  margin: 0 40rpx;
+  flex-direction: row;
 }
-.index-content .content{
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  margin: 12rpx 0;
+.userEval .userEvalutes .userEvalutes-tasks-evalute .hotevalute .hotevalute-item{
+
+  background-color: rgb(219, 214, 214);
+  margin-left: 20rpx;
   padding: 0 10rpx;
-  position: relative;
+  border-radius: 18rpx;
+  font-size: 30rpx;
 
 }
-.index-content .content .title{
-  font-weight: bold;
-  font-size: 35rpx;
-}
-.index-content .content .detaival{
-  font-size: 35rpx;
-  margin: 19rpx 0;
+
+.myuserInfo{
   display: flex;
-  flex-direction: column;
-  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
-
-.index-content .content .detaival .myuserInfo{
+.myuserInfo .myuserInfo-userInfo{
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.index-content .content .detaival .myuserInfo image{
+
+.myuserInfo text{
+  font-size: 25rpx;
+  color: rgb(153, 151, 151);
+}
+.myuserInfo image{
   width: 50rpx;
   height: 50rpx;
-  border-radius: 50%;
-}
-
-.index-content .detaival .out{
-  color: blue;
-
-}
-.index-content .detaival .devlists{
-  display: flex;
-  flex-direction: column;
-}
-.index-content .detaival .devlists .type{
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-
-}
-.index-content .detaival .devlists .lists{
-  display: flex;
-  flex-direction: row;
-  margin-left: 12rpx;
-}
-.index-content .detaival .devlists .lists text{
-  margin-left: 12rpx;
+  border-radius: 20%;
 }
 .indexshow{
   font-size: 35rpx;

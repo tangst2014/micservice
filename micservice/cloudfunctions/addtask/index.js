@@ -11,14 +11,15 @@ exports.main = async (event, context) => {
   // const wxContext = cloud.getWXContext()
   return await db.collection('tasks').add({
     data: {
+      _openid: event.openid,
       starttime: event.starttime,
       department: event.department,
       tasks: event.tasks,
       status: event.status,
-      openid: event.openid,
       endtime: event.endtime,
       bkstaff: event.bkstaff,
       feedback: event.feedback,
+      tasks_evalute: event.tasks_evalute
     },
     success: function (res) {
       console.log('liveroom', event)

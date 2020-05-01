@@ -1,0 +1,24 @@
+.userInfo{
+  display: flex;
+  flex-direction: column;
+  margin-top:30%;
+}
+.userinfo-avatar {
+  text-align: center;
+  margin: 0 auto;
+  overflow: hidden;
+  display: block;
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  border: 2px solid #ebebef;
+}
+.userinfo-nickName{
+  font-size: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn{
+  margin-top:200rpx;
+}

@@ -1,0 +1,90 @@
+.evalute{
+  margin:auto 30rpx;
+}
+.evalute-description{
+  padding:30rpx 0;
+  display:flex;
+  flex-direction:row;
+}
+.evalute-description-star{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-size: 50rpx 50rpx;
+  transition: 600ms;
+}
+.evalute-description-star .text{
+  font-size: 35rpx;
+  font-weight: 600;
+}
+.evalute-description-star .stars{
+    padding-left: 28rpx;
+}
+.evalute-description-star .stars image{
+    width: 40rpx;
+    height: 40rpx;
+}
+.evalute-description-star .showtext{
+  margin-left: 48rpx;
+  font-size: 25rpx;
+  color: rgb(99, 94, 94);
+}
+.hottext{
+  display: flex;
+}
+.hottext .hottext-word{
+  display: flex;
+  flex-direction: row;
+
+}
+.hottext .hottext-word-item{
+  background-color: rgb(241, 233, 233);
+  text-align: center;
+  margin-left: 17rpx;
+  padding: 8rpx;
+  font-size: 30rpx;
+  border-radius: 20rpx;
+}
+
+
+.scroll-view_H{
+  white-space: nowrap;
+}
+.scroll-view-item{
+  height: 100rpx
+}
+.scroll-view-item_H{
+  display: inline-block;
+  width: 183rpx;
+  font-size: 30rpx;
+  margin: 0 20rpx;
+}
+
+.on{
+    transition: 1s;
+    transform: scale(1,1)
+}
+.evalute-text{
+  width: 100%;
+  margin:50rpx auto;
+}
+textarea{
+  width: 100% !important;
+}
+.evalute-btn{
+  width: 100%;
+  
+}
+.evalute-btn button{
+    background: #57B6BA;
+    color: #fff;
+    width: 100% !important;
+}
+
+.evalute-btn button:active{
+  background: rgb(69, 188, 192);
+  color: #fff;
+}
+.selected{
+  background: rgb(238, 183, 3) !important;
+}

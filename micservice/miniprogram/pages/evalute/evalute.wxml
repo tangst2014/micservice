@@ -1,0 +1,42 @@
+<!--星星评价-->
+<view class="evalute" wx:if="{{!submitting}}">
+  <view class="evalute-description">{{task}}</view>
+  <view class="evalute-description">
+    <view class="evalute-description-star" style="display:flex;flex-direction:row;">
+      <view class="text">评分</view>
+      <view class="stars  {{star>=1? 'on': ''}}" bindtap="changeLiked1">
+      <image src="{{star>=1?liked:unliked}}"></image></view>
+      <view class="stars  {{star>=2? 'on': ''}}" bindtap="changeLiked2">
+      <image src="{{star>=2?liked:unliked}}"></image></view>
+      <view class="stars  {{star>=3? 'on': ''}}" bindtap="changeLiked3">
+      <image src="{{star>=3?liked:unliked}}"></image></view>
+      <view class="stars  {{star>=4? 'on': ''}}" bindtap="changeLiked4">
+      <image src="{{star>=4?liked:unliked}}"></image></view>
+      <view class="stars  {{star>=5? 'on': ''}}" bindtap="changeLiked5">
+      <image src="{{star>=5?liked:unliked}}"></image></view>
+      <view class="showtext">{{stars_text}}</view>
+  </view>
+  </view>
+  <view class="hottext">
+    <scroll-view class="scroll-view_H" scroll-x="true" scroll-with-animation="true" style="width: 100%">
+    <block wx:for="{{hotevalute}}"  wx:key="index" wx:for-item="score">
+     <view class="scroll-view-item_H hottext-word-item {{selectmarks[index]?'selected':''}}"  data-index="{{index}}" bindtap="onSelect">{{score}}</view>
+    </block>
+    </scroll-view>
+  </view>
+<!--文本域  -->
+ <form bindsubmit="bindFormSubmit">
+  <view class="evalute-text">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea class="weui-textarea" bindinput="bindTextAreaChange" name="textarea" placeholder="对技术人员的服务态度,技术水平,我要说..." style="height: 8em" value="{{info}}" maxlength="{{noteMaxLen}}" focus />
+        <view class="weui-textarea-counter">{{noteNowLen}}/{{noteMaxLen}}</view>
+      </view>
+    </view>
+  </view>
+<!--发布按钮  -->
+  <view class="evalute-btn">
+    <button form-type="submit" hover-class="hover">评价</button>
+  </view>
+</form>
+</view>

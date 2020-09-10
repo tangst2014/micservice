@@ -17,5 +17,6 @@ App({
   },
   globalData : {
     userInfo: null,
+    onmenu:3  //切换菜单，1:管理员；2:维护人员 3：普通员工
   }
 })

@@ -55,21 +55,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+    var tasks= wx.getStorageSync('tasks')
     var that=this
-    that.getTasks();
+    tasks[1].forEach(function(item,index){
+      if(index==options.id){
+        that.setData({
+          task: item.tasks,
+          taskid: item._id
+        })
+      }
+    })
+   
   },
-  getTasks:function(){
+  getTasks:function(id){
     var that = this
     tasks
       .where({
-        _openid: "o-2xL5AZOwtNiXzHLD_Z1Ku2I9g8"
+        _id: id
       })
       .get()
       .then(res => {
         console.log('getTasks',res.data)
         that.setData({
-          task: res.data[2].tasks,
-          taskid: res.data[2]._id
+          task: res.data[0].tasks,
+          taskid: res.data[0]._id
         })
       })
   },
@@ -85,6 +95,20 @@ Page({
   },
   // 提交清空当前值
   bindFormSubmit: function (e) {
+
+    if(that.data.taskid){  //为空
+      wx.showToast({
+        title: '没有查询到信息',
+        mask:true,
+        duration:2000,
+      })
+      setTimeout(function () {
+        wx.hideToast();
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 2000)
+    }
     this.setData({ submitting: true })
     var that = this;
     var time = util.formatTime(new Date)  // 获取当前最新时间
@@ -97,12 +121,13 @@ Page({
     tasks_evalute.userInfo = app.globalData.userInfo
 
     console.log('tasks_evalute', tasks_evalute)
-    console.log('_id', that.data.task._id)
+    console.log('_id', that.data.taskid)
     if (tasks_evalute.star>0){  //为0没有操作
       wx.cloud.callFunction({   //更新记录
         name: 'update',
         data: {
           _id: that.data.taskid,
+          status:true,
           tasks_evalute: tasks_evalute
         },
         success: res => { },

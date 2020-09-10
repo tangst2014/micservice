@@ -1,0 +1,33 @@
+/**index.wxss**/
+.tasks{
+  display: flex;
+  flex-direction: column;
+}
+.tasks .tasks-all{
+  display: flex;
+  flex-direction: column;
+  margin: 0 30rpx;
+}
+
+.tasks .tasks-all-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35rpx;
+}
+.tasks .tasks-all-btn{
+   display: flex;
+   flex-direction: row;
+   margin: 43rpx 0rpx;
+}
+
+
+.section{
+  padding: 12rpx 15rpx;
+  position: relative;
+}
+.section .section__title{
+  margin: 20rpx 0;
+  font-weight: bold;
+  font-size:35rpx;
+}

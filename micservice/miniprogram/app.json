@@ -1,10 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/wxSearch/wxSearch",
-    "pages/addtasks/addtasks",
-    "pages/evalute/evalute",
-    "pages/login/login"
+    "pages/indexsys/index/index",
+    "pages/indexsys/_index/_index",
+    "pages/indexsys/logs/logs"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

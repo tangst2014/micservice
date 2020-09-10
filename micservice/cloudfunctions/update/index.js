@@ -11,6 +11,7 @@ exports.main = async (event, context) => {
   return await db.collection('tasks').doc(event._id).update({
     data: {
       // 更新的字段
+      status:event.status,
       tasks_evalute: event.tasks_evalute
     },
     success: function (res) {

@@ -13,10 +13,17 @@ App({
     var userInfo = wx.getStorageSync('userInfo')
     if (userInfo) {
       that.globalData.userInfo = userInfo
+      that.globalData._openid = userInfo._openid
+    }
+
+    var menucheck = wx.getStorageSync('menucheck')
+    if(menucheck){
+        that.globalData.onmenu = menucheck
     }
   },
   globalData : {
     userInfo: null,
-    onmenu:3  //切换菜单，1:管理员；2:维护人员 3：普通员工
+    onmenu: 1,  //切换菜单，1:管理员；2:维护人员 3：普通员工
+    _openid:''   //用户openid
   }
 })

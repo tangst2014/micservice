@@ -1,10 +1,9 @@
 
-.opendata{
-  height: 328rpx;
-  margin-bottom: 20rpx;
 
+.container .background{
+  width: 750rpx;
+  height: 322rpx;
 }
-
 
 .selected{
   padding: 2rpx 30rpx 2rpx 30rpx;

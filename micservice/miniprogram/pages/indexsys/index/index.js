@@ -65,7 +65,7 @@ Page({
       console.log('PageCur',that.data.PageCur)
     }
 
-
+// 获取所有任务
     gettask
     .get()
     .then(res => {
@@ -81,8 +81,25 @@ Page({
         }
        
       })
+    // 获取本人添加的任务
+    
+    gettask
+    .where({
+        _openid:app._openid
+    })
+    .get()
+    .then(res => {
+        console.log('mytask',res.data,app._openid)
+        if(res.data.length>0){  
+          wx.setStorage({
+            key: 'mytask',
+            data: res.data
+          })
 
-
+        }
+      
+      })
+      // 获取员工信息
       staff.get()
       .then(res=>{
         wx.setStorage({
@@ -201,7 +218,12 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    // 当关闭页面时，清楚当前活动页面标签,恢复到主页
+    
+    menus.masterMenuData.activeUrl = 'datas'
+    menus.agentMenuData.activeUrl = 'datas'
+    menus.staffMenuData.activeUrl = 'netindex'
+   
   },
 
   /**

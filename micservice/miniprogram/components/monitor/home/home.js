@@ -1,6 +1,7 @@
 const db = wx.cloud.database()
 const staff = db.collection('staff')
 const tasks = db.collection('tasks')
+var headTapCount = 0;
 Component({
 
   /**
@@ -101,5 +102,19 @@ Component({
           })
         })
     },
+    // 点击头部位置，切换菜单
+    // 点击6次切换
+    onHead:function(e){
+      headTapCount++;
+      console.log(headTapCount)
+      setTimeout(function () {
+        headTapCount = 0
+      }, 2000)
+      if (headTapCount >= 6) {
+        wx.navigateTo({
+          url: '/pages/menus/menus',
+        })
+      }
+    }
   }
 })

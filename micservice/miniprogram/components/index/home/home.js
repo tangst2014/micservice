@@ -1,3 +1,4 @@
+var headTapCount = 0;
 Component({
   
   /**
@@ -83,6 +84,18 @@ Component({
         url: '/pages/wxSearch/wxSearch',
       })
     },
+    onHead:function(){
+      headTapCount++;
+      console.log(headTapCount)
+      setTimeout(function () {
+        headTapCount = 0
+      }, 2000)
+      if (headTapCount >= 6) {
+        wx.navigateTo({
+          url: '/pages/menus/menus',
+        })
+      }
+    }
   },
   ready(){
     var tasks = wx.getStorageSync('gettask')

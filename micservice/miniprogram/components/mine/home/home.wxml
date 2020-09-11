@@ -1,2 +1,28 @@
-<!--pages/biz/mine/home/home.wxml-->
-<text>----->我的页面</text>
+
+
+<!-- <view class="header" wx:if="{{doing.length>1}}">
+    <text wx:for="{{doing}}" wx:key="this" class="{{intoview==index?'selected':'unselected'}}" bindtap="onSwitch" data-id="{{index}}">{{item}}</text>
+</view> -->
+<view wx:for="{{tasks}}" wx:key="this" wx:for-item="info">
+    <view class="userEval">
+      <block wx:if="{{tasks.length>0}}">
+        <view class="userEval-department">
+            <view>部门：{{info.department}}</view>
+            <view wx:if="{{info.status==true}}" bindtap="bindGetUserInfo" id="{{index}}">去评价</view>
+        </view>
+        <view class="userEval-time">
+            开始时间：{{info.starttime}}
+        </view>
+        <view class="userEval-tasks">
+            问题描述：{{info.tasks}}
+        </view> 
+
+       <view>
+              评价：{{info.tasks_evalute.text}}
+       </view>
+      </block>
+      <block wx:else>
+        <view>暂无数据</view>
+      </block>
+    </view>
+</view>

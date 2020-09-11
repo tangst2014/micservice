@@ -1,4 +1,6 @@
-<view class="opendata"><open-data type="userAvatarUrl"></open-data></view>
+<view class="container" bindtap="onHead">
+  <image class="background" src="/images/123.jpg" mode="widthFix"></image>
+</view>
 <view class="page-section-spacing">
   <scroll-view class="scroll-view_H" scroll-x="true" 
   scroll-with-animation="true" style="width: 100%">

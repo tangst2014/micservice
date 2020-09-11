@@ -2,7 +2,11 @@
 .search-section{
   height: 100%;
   border-top: 1px #eee solid;
+  background-color: rgb(199, 199, 199);
   margin: 20rpx;
+  padding: 7rpx;
+  border-radius: 15rpx;
+
 
 }
 .search-section .search-pancel{
@@ -10,10 +14,11 @@
   flex-direction: row;
   align-items: center;
 
+
 }
 .search-section .search-pancel input{
   flex: 8; 
-  background-color: #eee;
+  background-color: rgb(199, 199, 199);
   padding:  5px 0 5px 10px;
   font-size: 30rpx;
 }

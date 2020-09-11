@@ -1,4 +1,5 @@
 import util from "../../../utils/utils.js";
+const app = getApp().globalData
 Component({
 
   /**
@@ -54,7 +55,7 @@ Component({
           department: e.detail.value.department,
           tasks: e.detail.value.tasks,
           status: false,
-          openid: '123',
+          openid: app._openid,
           endtime: '',
           bkstaff: '',
           feedback: '',

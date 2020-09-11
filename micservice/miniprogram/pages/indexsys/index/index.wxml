@@ -9,9 +9,12 @@
 </view>
 
 <datas wx:if="{{PageCur=='datas'}}"></datas>
+<netindex wx:if="{{PageCur=='netindex'}}"></netindex>
 <maintenance wx:if="{{PageCur=='maintenance'}}"></maintenance>
 <monitor wx:if="{{PageCur=='monitor'}}"></monitor>
 <mine wx:if="{{PageCur=='mine'}}"></mine>
+
+
 
 <!-- tabar菜单 -->
 <template is="tabBar" data="{{menus}}"  />

@@ -1,0 +1,22 @@
+
+
+.userEval{
+  margin: 20rpx 20rpx;
+  line-height: 60rpx;
+
+}
+
+
+.userEval  .userEval-tasks-evalute{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.userEval .userEval-department{
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+
+}
+

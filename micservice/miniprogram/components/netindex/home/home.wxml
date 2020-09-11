@@ -1,0 +1,5 @@
+<!--components/netindex/home/home.wxml-->
+<view style="display:flex;justify-content:center;align-items:center;flex-direction: column;margin-top:300rpx;font-size: 20px;">
+    <view>有问题</view>
+    <view>请添加说明或打电话</view>
+</view>

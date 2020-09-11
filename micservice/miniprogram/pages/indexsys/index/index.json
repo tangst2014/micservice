@@ -4,6 +4,7 @@
     "datas": "/components/index/home/home",
     "maintenance": "/components/addtasks/home/home",
     "monitor": "/components/monitor/home/home",
+    "netindex": "/components/netindex/home/home",
     "mine": "/components/mine/home/home"
   }
 }

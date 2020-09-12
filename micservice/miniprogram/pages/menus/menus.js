@@ -15,7 +15,6 @@ Page({
       loading:true
   },
   radioChange(e) {
-    console.log('menus value：', e.detail.value)
     app.onmenu= e.detail.value
     this.setData({
       loading:false

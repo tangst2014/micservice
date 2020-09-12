@@ -1,10 +1,5 @@
 
 
-.container .background{
-  width: 750rpx;
-  height: 322rpx;
-}
-
 .selected{
   padding: 2rpx 30rpx 2rpx 30rpx;
   background-color: rgb(233, 154, 6);

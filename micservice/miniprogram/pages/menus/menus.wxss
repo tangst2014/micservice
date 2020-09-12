@@ -1,4 +1,14 @@
 radio-group {
   width: 100%;
 }
-  
+.static{
+  margin: 20px 20px 0 20px;
+}
+.static .static-item-title{
+  font-size: 40rpx;
+}
+
+.static .static-item-content{
+  margin: 10px 20px;
+  font-size: 35rpx;
+}

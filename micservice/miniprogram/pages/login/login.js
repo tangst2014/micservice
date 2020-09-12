@@ -1,6 +1,6 @@
 // miniprogram/pages/login/login.js
 import util from "../../utils/utils.js";
-const app = getApp()
+const app = getApp().globalData
 const db = wx.cloud.database()
 Page({
 
@@ -15,12 +15,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
   /***
   * 登录
  */
   getUserData: function () {
+    if(app._openid){
+      return;
+    }
+    wx.showLoading({
+      title: '登录中~~',
+      mask: true,
+    })
+
     var that = this
     wx.getSetting({
       success(res) {
@@ -28,20 +36,41 @@ Page({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           wx.getUserInfo({
             success: function (resUserInfo) {
-              wx.showLoading({
-                title: '登录中~~',
-                mask: true,
+              var UserInfo = resUserInfo.userInfo
+
+              wx.cloud.callFunction({    //添加livingHistory表记录
+                name: 'login',
+                success: res => {
+                  console.log('UserInfo', res.result.openid)
+                  app._openid = res.result.openid
+                  
+                  wx.setStorage({
+                    key: 'userInfo',
+                    data: UserInfo
+                  })
+
+                  wx.setStorage({
+                    key: 'openid',
+                    data: res.result.openid
+                  })
+
+                  that.setData({ btnValue: '已登录' })
+                  setTimeout(function () {
+                    wx.hideLoading();
+                  }, 1000)
+
+                  setTimeout(function () {
+                    wx.navigateBack({
+                      delta: 1
+                    })
+                  }, 1500)
+                },
+                fail: err => { }
               })
-              app.globalData.userInfo = resUserInfo.userInfo
-              wx.setStorage({
-                key: 'userInfo',
-                data: resUserInfo.userInfo
-              })
+
+             
             }, complete: res => {
-              that.setData({ btnValue: '已登录' })
-              setTimeout(function () {
-                wx.hideLoading();
-              }, 1000)
+              
             }
           })
         }
@@ -49,6 +78,7 @@ Page({
     })
   },
   bindGetUserInfo(e) {
+   
     if ((!this.data.logged && e.detail.userInfo)) {
       this.setData({
         logged: true,
@@ -87,7 +117,14 @@ Page({
    * 每次离开都要同步用户数据库状态
    */
   onUnload: function () {
-
+    var pages = getCurrentPages();
+    var currPage = pages[pages.length - 1];   //当前页面
+    var prevPage = pages[pages.length - 2];  //上一个页面
+    if (prevPage) {
+      if (prevPage.route == 'pages/indexsys/index/index') {
+        prevPage.onLoad();
+      }
+    }
   },
 
   /**

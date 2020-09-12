@@ -2,8 +2,9 @@
 const app = getApp().globalData
 const db = wx.cloud.database()
 var menus  = require('../../../tabbars/js/menus');
-const gettask = db.collection('tasks')
+const gettasks = db.collection('tasks')
 const staff = db.collection('staff')
+const getaddtask = db.collection('addtask')
 
 Page({
   /**
@@ -40,59 +41,93 @@ Page({
       获取角色信息
       ...
     */
-   console.log('menus',menus)
+   console.log('app._openid',app._openid)
+   console.log('menus', menus)
    var that = this
     options.roleId = app.onmenu;
     /* roleId 1:管理员；2:维护人员 3：普员工*/
     if(options.roleId == 1){
       this.setData({
-        PageCur:menus.masterMenuData.activeUrl,
+        PageCur: 'datas',
         roleId: options.roleId,
         menus: menus.masterMenuData
       })
     } else if(options.roleId==2){
       this.setData({
-        PageCur:menus.agentMenuData.activeUrl,
+        PageCur:'todo',
         roleId: options.roleId,
         menus: menus.agentMenuData
       })
     } else{
       this.setData({
-        PageCur:menus.staffMenuData.activeUrl,
+        PageCur:'netindex',
         roleId: options.roleId,
         menus: menus.staffMenuData
       })
       console.log('PageCur',that.data.PageCur)
     }
 
-// 获取所有任务
-    gettask
+   // 获取所有已办任务
+    gettasks
     .get()
     .then(res => {
 
-        console.log('gettask',res.data)
+        console.log('tasks',res.data)
         if(res.data.length>0){
           
           wx.setStorage({
-            key: 'gettask',
+            key: 'get-all-tasks',
             data: res.data
           })
  
         }
        
       })
-    // 获取本人添加的任务
-    
-    gettask
+
+    // 获取所有待办的任务
+    getaddtask
+      .get()
+      .then(res => {
+        console.log('addtask', res.data, app._openid)
+        if (res.data.length > 0) {
+          wx.setStorage({
+            key: 'get-all-addtask',
+            data: res.data
+          })
+
+        }
+
+      })
+
+    // 获取本人新添加的任务
+    getaddtask
+      .where({
+        _openid: app._openid
+      })
+      .get()
+      .then(res => {
+        console.log('addtask', res.data, app._openid)
+        if (res.data.length > 0) {
+          wx.setStorage({
+            key: 'get-my-addtask',
+            data: res.data
+          })
+
+        }
+
+      })
+
+    // 获取本人之前的任务
+    gettasks
     .where({
         _openid:app._openid
     })
     .get()
     .then(res => {
-        console.log('mytask',res.data,app._openid)
+      console.log('my tasks',res.data,app._openid)
         if(res.data.length>0){  
           wx.setStorage({
-            key: 'mytask',
+            key: 'get-my-tasks',
             data: res.data
           })
 

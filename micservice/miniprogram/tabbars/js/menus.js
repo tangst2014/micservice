@@ -26,14 +26,20 @@ var staffMenus = {
 }
 
 var agentMenus = {
-  activeUrl: 'datas',
+  activeUrl: 'todo',
   list:[{
-    currentUrl:"datas",
-    unCheckImgUrl:"/assets/images/tabbar/index.png",
-    checkedImgUrl:"/assets/images/tabbar/index_cur.png",
+    currentUrl:"todo",
+    unCheckImgUrl:"/assets/images/tabbar/todo.png",
+    checkedImgUrl:"/assets/images/tabbar/todo_cur.png",
     btnType: 0,
-    title:"主页"
-  }]
+    title:"待办"
+  },{
+      currentUrl: "done",
+      unCheckImgUrl: "/assets/images/tabbar/done.png",
+      checkedImgUrl: "/assets/images/tabbar/done_cur.png",
+      btnType: 0,
+      title: "已办"
+    }]
 }
 
 var masterMenus = {

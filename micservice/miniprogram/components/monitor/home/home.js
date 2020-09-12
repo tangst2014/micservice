@@ -35,6 +35,13 @@ Component({
       })
     }
 
+    var allevalation = wx.getStorageSync('gettask')
+    if (allevalation) {
+      console.log('allevalation', allevalation)
+      this.setData({
+        userEvalute: allevalation
+      })
+    }
   },
 
   /**

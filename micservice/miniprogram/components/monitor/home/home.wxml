@@ -1,5 +1,5 @@
 <view class="container" bindtap="onHead">
-  <image class="background" src="/images/123.jpg" mode="widthFix"></image>
+  <image class="background" src="/images/123.jpg" mode="aspectFit"></image>
 </view>
 <view class="page-section-spacing">
   <scroll-view class="scroll-view_H" scroll-x="true" 
@@ -18,7 +18,7 @@
 <block wx:if="{{userEvalute.length>0}}">
   <view wx:for="{{userEvalute}}" wx:key="index" wx:for-item="info" class="userEvalutes">
       <view class="userEvalutes-time">
-       开始时间：{{info.time}}v    002287
+       开始时间：{{info.time}}
       </view>
       <view class="userEvalutes-tasks">
        问题描述：{{info.tasks}}

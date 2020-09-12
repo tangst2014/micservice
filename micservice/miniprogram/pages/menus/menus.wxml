@@ -3,7 +3,7 @@
     <view class="static-item-title">请选择角色：</view>
     <view class="static-item-content">
       <radio-group bindchange="radioChange">
-        <label class="weui-cell" wx:for="{{items}}" wx:key="{{item.value}}">
+        <label class="weui-cell" wx:for="{{items}}" wx:key="this">
           <view class="weui-cell__hd">
             <radio value="{{item.value}}" checked="{{item.checked}}"/>
           </view>

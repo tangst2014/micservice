@@ -23,7 +23,7 @@ App({
   },
   globalData : {
     userInfo: null,
-    onmenu: 1,  //切换菜单，1:管理员；2:维护人员 3：普通员工
+    onmenu: 3,  //切换菜单，1:管理员；2:维护人员 3：普通员工
     _openid:''   //用户openid
   }
 })

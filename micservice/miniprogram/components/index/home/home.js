@@ -12,6 +12,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+      select: 1,
       elements: [{
         title: '布局',
         name: 'layout',
@@ -95,10 +96,29 @@ Component({
           url: '/pages/menus/menus',
         })
       }
-    }
+    },
+    onAddtask: function () {
+      var addtask = wx.getStorageSync('get-all-addtask')
+      console.log('addtask', addtask)
+      this.setData({
+        tasks: addtask,
+        select: 1
+      })
+
+    },
+    onTasks: function () {
+      var tasks = wx.getStorageSync('get-all-tasks')
+      console.log('tasks', tasks)
+      this.setData({
+        tasks: tasks,
+        select: 2
+      })
+
+
+    },
   },
   ready(){
-    var tasks = wx.getStorageSync('gettask')
+    var tasks = wx.getStorageSync('get-all-addtask')
     if (tasks) {
       console.log('get tasks')
       this.setData({

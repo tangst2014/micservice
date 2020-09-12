@@ -1,4 +1,4 @@
-@import "./assets/wxss/global.wxss";
-@import "./assets/wxss/weui.wxss";
 @import "./assets/colorui/main.wxss";
 @import "./assets/colorui/icon.wxss";
+@import "./assets/wxss/global.wxss";
+@import "./assets/wxss/weui.wxss";

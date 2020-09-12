@@ -1,14 +1,45 @@
 
+<view class="container" bindtap="onHead">
+  <image class="background" src="/images/123.jpg" mode="aspectFit"></image>
+</view>
 
-<!-- <view class="header" wx:if="{{doing.length>1}}">
-    <text wx:for="{{doing}}" wx:key="this" class="{{intoview==index?'selected':'unselected'}}" bindtap="onSwitch" data-id="{{index}}">{{item}}</text>
-</view> -->
-<view wx:for="{{tasks}}" wx:key="this" wx:for-item="info">
+<view class="header">
+  <view class="select {{select==1?'selected':''}}" bindtap="onMyAddtask">
+  <text>新添加任务</text>
+  </view>
+  <view class="select {{select==2?'selected':''}}" bindtap="onMytasks">
+  <text>以往任务</text>
+  </view>
+</view>
+
+<view wx:if="{{select==1}}" >
+   <view wx:for="{{tasks}}" wx:key="this" wx:for-item="info">
     <view class="userEval">
       <block wx:if="{{tasks.length>0}}">
         <view class="userEval-department">
             <view>部门：{{info.department}}</view>
-            <view wx:if="{{info.status==true}}" bindtap="bindGetUserInfo" id="{{index}}">去评价</view>
+        </view>
+        <view class="userEval-time">
+            开始时间：{{info.starttime}}
+        </view>
+        <view class="userEval-tasks">
+            问题描述：{{info.tasks}}
+        </view> 
+      </block>
+      <block wx:else>
+        <view>暂无数据</view>
+      </block>
+    </view>
+  </view>
+</view>
+
+<view wx:elif="{{select==2}}" >
+  <view wx:for="{{tasks}}" wx:key="this" wx:for-item="info">
+    <view class="userEval">
+      <block wx:if="{{tasks.length>0}}">
+        <view class="userEval-department">
+            <view>部门：{{info.department}}</view>
+            <view wx:if="{{info.status==false}}" bindtap="bindGetUserInfo" id="{{info._id}}">去评价</view> 
         </view>
         <view class="userEval-time">
             开始时间：{{info.starttime}}
@@ -17,7 +48,7 @@
             问题描述：{{info.tasks}}
         </view> 
 
-       <view>
+       <view wx:if="{{info.status==true}}">
               评价：{{info.tasks_evalute.text}}
        </view>
       </block>
@@ -25,4 +56,9 @@
         <view>暂无数据</view>
       </block>
     </view>
+  </view>
 </view>
+
+<navigator url="/pages/login/login" class="login" wx:if="{{openid==''}}">
+登录
+</navigator>

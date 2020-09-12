@@ -9,7 +9,7 @@ const _ = db.command
 // 云函数入口函数
 exports.main = async (event, context) => {
   // const wxContext = cloud.getWXContext()
-  return await db.collection('tasks').add({
+  return await db.collection('addtask').add({
     data: {
       _openid: event.openid,
       starttime: event.starttime,

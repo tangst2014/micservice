@@ -55,11 +55,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    var tasks= wx.getStorageSync('tasks')
+  
+    var tasks= wx.getStorageSync('get-my-tasks')
     var that=this
-    tasks[1].forEach(function(item,index){
-      if(index==options.id){
+ 
+    tasks.forEach(function(item,index){
+      if (item._id==options.id){
+
         that.setData({
           task: item.tasks,
           taskid: item._id
@@ -95,7 +97,7 @@ Page({
   },
   // 提交清空当前值
   bindFormSubmit: function (e) {
-
+    var that = this
     if(that.data.taskid){  //为空
       wx.showToast({
         title: '没有查询到信息',
@@ -110,7 +112,6 @@ Page({
       }, 2000)
     }
     this.setData({ submitting: true })
-    var that = this;
     var time = util.formatTime(new Date)  // 获取当前最新时间
     var tasks_evalute=  that.data.tasks_evalute
 

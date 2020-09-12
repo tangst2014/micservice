@@ -65,17 +65,17 @@ Component({
           //  console.log('调用[云函数]成功 ', res)
           setTimeout(function () {
             wx.hideToast();
-            wx.navigateBack({
-              delta: 1
+            wx.navigateTo({
+              url: '/pages/indexsys/index/index',
             })
   
-          }, 2000)
+          }, 1000)
         },
         fail: err => {
-          console.error('[云函数] [login] 调用失败', err)
+          console.error('调用失败', err)
           wx.showToast({
             title: "添加失败",
-            duration: 2000
+            duration: 1000
           })
         }
       })

@@ -3,7 +3,7 @@ import util from "../../utils/utils.js";
 const app = getApp()
 const db = wx.cloud.database()
 const staff = db.collection('staff')
-const tasks = db.collection('tasks')
+const addtasks = db.collection('addtask')
 Page({
 
   /**
@@ -33,7 +33,7 @@ Page({
   onLoad: function (options) {
     var that = this
 
-    tasks
+    addtasks
     .get()
     .then(res => {
         // 读取所有任务

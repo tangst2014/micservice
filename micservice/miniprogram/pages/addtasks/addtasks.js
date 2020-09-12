@@ -53,9 +53,7 @@ Page({
         //  console.log('调用[云函数]成功 ', res)
         setTimeout(function () {
           wx.hideToast();
-          wx.navigateBack({
-            delta: 1
-          })
+          
 
         }, 2000)
       },

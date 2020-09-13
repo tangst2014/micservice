@@ -32,7 +32,8 @@
 .userEval{
   margin: 20rpx 20rpx;
   line-height: 60rpx;
-
+  padding: 5rpx 10px;
+  box-shadow: 1px 1px 3px 0px;
 }
 
 

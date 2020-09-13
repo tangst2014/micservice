@@ -120,9 +120,15 @@ Page({
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
     var prevPage = pages[pages.length - 2];  //上一个页面
+    console.log('prevPage', prevPage.route)
     if (prevPage) {
+      // 刷新普通员工角色的首页
+      var index = { 
+        roleId:3,
+        login:true
+      }
       if (prevPage.route == 'pages/indexsys/index/index') {
-        prevPage.onLoad();
+        prevPage.onLoad(index);
       }
     }
   },

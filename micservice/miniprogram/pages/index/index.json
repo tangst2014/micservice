@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "首页",
-  "usingComponents": {
-    "datas": "/components/index/home/home",
-    "maintenance": "/components/maintenance/home/home",
-    "monitor": "/components/monitor/home/home",
-    "mine": "/components/mine/home/home"
-  }
-}

@@ -8,10 +8,15 @@ Component({
     addGlobalClass: true,
   },
 
+  properties: {
+
+  },
+
   /**
    * 组件的初始数据
    */
   data: {
+    select: 1,
     loading:true
   },
 
@@ -35,15 +40,37 @@ Component({
           url: '/pages/menus/menus',
         })
       }
-    }
-  },
-  ready() {
-    var tasks = wx.getStorageSync('get-all-addtask')
-    if (tasks) {
-      console.log('todo getstorage alltasks')
+    },
+    onAddtask: function () {
+      var addtask = wx.getStorageSync('get-all-addtask')
+      console.log('addtask', addtask)
+      this.setData({
+        tasks: addtask,
+        select: 1
+      })
+
+    },
+    onTasks: function () {
+      var tasks = wx.getStorageSync('get-all-tasks')
+      console.log('tasks', tasks)
       this.setData({
         tasks: tasks,
-        loading:false
+        select: 2
+      })
+
+
+    },
+  },
+  ready() {
+    console.log('loading', this.data.loading)
+    var tasks = wx.getStorageSync('get-all-addtask')
+    if (tasks) {
+      console.log('get tasks')
+      this.setData({
+        tasks: tasks,
+        loadfinish: true,
+        istask: true,
+        loading: false
       })
     }
   }

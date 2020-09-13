@@ -78,7 +78,7 @@ Page({
       })
       .get()
       .then(res => {
-        console.log('getTasks',res.data)
+        console.log('evalute getTasks',res.data)
         that.setData({
           task: res.data[0].tasks,
           taskid: res.data[0]._id
@@ -121,8 +121,8 @@ Page({
     tasks_evalute.time = time
     tasks_evalute.userInfo = app.globalData.userInfo
 
-    console.log('tasks_evalute', tasks_evalute)
-    console.log('_id', that.data.taskid)
+    console.log('evalute tasks', tasks_evalute)
+
     if (tasks_evalute.star>0){  //为0没有操作
       wx.cloud.callFunction({   //更新记录
         name: 'update',

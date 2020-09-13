@@ -1,12 +1,12 @@
 {
   "navigationBarTitleText": "首页",
   "usingComponents": {
-    "datas": "/components/index/home/home",
+    "datas": "/components/indexMaster/indexMaster",
     "todo": "/components/todo/todo",
     "done": "/components/done/done",
-    "maintenance": "/components/addtasks/home/home",
-    "monitor": "/components/monitor/home/home",
-    "netindex": "/components/netindex/home/home",
-    "mine": "/components/mine/home/home"
+    "maintenance": "/components/addtasks/addtasks",
+    "monitor": "/components/monitor/monitor",
+    "netindex": "/components/indexNet/indexNet",
+    "mine": "/components/mine/mine"
   }
 }

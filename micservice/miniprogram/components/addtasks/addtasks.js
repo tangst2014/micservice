@@ -1,11 +1,11 @@
-import util from "../../../utils/utils.js";
+import util from "../../utils/utils.js";
 const app = getApp().globalData
 Component({
 
   /**
    * 组件的属性列表
    */
-  options:{
+  options: {
     addGlobalClass: true,
   },
 
@@ -59,7 +59,7 @@ Component({
           endtime: '',
           bkstaff: '',
           feedback: '',
-          tasks_evalute:{},
+          tasks_evalute: {},
         },
         success: res => {
           //  console.log('调用[云函数]成功 ', res)
@@ -68,7 +68,7 @@ Component({
             wx.navigateTo({
               url: '/pages/indexsys/index/index',
             })
-  
+
           }, 1000)
         },
         fail: err => {
@@ -79,11 +79,11 @@ Component({
           })
         }
       })
-  
-  
-  
+
+
+
     },
-  
+
     /**
        * 照片操作
       */
@@ -110,7 +110,7 @@ Component({
         imgbox: imgbox
       });
     },
-  
+
     //图片
     imgbox: function (e) {
       this.setData({

@@ -14,7 +14,7 @@
 <netindex wx:if="{{PageCur=='netindex'}}"></netindex>
 <maintenance wx:if="{{PageCur=='maintenance'}}"></maintenance>
 <monitor wx:if="{{PageCur=='monitor'}}"></monitor>
-<mine wx:if="{{PageCur=='mine'}}"></mine>
+<mine wx:if="{{PageCur=='mine'}}" tasks="{{tasks}}" addtask="{{addtask}}" openid></mine>
 
 
 

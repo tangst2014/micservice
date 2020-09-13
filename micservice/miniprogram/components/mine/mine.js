@@ -6,7 +6,7 @@ Component({
   /**
    * 组件的属性列表
    */
-  options:{
+  options: {
     addGlobalClass: true,
   },
 
@@ -14,34 +14,35 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    
+    addtask: {
+      type: Array
+    },
+    tasks:{
+      type:Array
+    },
+    openid:{
+      type:Boolean
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    tasks:[],
-    select: 1 ,
+    // tasks: [],
+    select: 1,
     openid: ""
   },
 
-  ready(){
-    var that= this
-    var openid = wx.getStorageSync('openid')
-    console.log('app._openid', openid)
-    if (openid){
-      that.setData({
-        openid: openid
-      })
-    }
-    var addtask = wx.getStorageSync('get-my-addtask')
-    var tasks = wx.getStorageSync('get-my-tasks')
-    var temp = [addtask, tasks]
-    that.setData({
-      tasks: addtask
-    })
-    console.log('ready mytasks', addtask)
+  ready() {
+    
+    // var addtask = wx.getStorageSync('get-my-addtask')
+    // var tasks = wx.getStorageSync('get-my-tasks')
+    // var temp = [addtask, tasks]
+    // that.setData({
+    //   tasks: addtask
+    // })
+    // console.log('ready mytasks', addtask)
   },
   /**
    * 组件的方法列表
@@ -61,7 +62,7 @@ Component({
         })
       }
     },
-    onMyAddtask:function(){
+    onMyAddtask: function () {
       var addtask = wx.getStorageSync('get-my-addtask')
       console.log('addtask', addtask)
       this.setData({
@@ -77,7 +78,7 @@ Component({
         tasks: tasks,
         select: 2
       })
-     
+
 
     },
     onSwitch: function (index) {
@@ -87,7 +88,7 @@ Component({
       })
     },
     bindGetUserInfo(e) {
-      console.log('id',e.currentTarget.id)
+      console.log('id', e.currentTarget.id)
       if (app.userInfo) {
         wx.navigateTo({
           url: '/pages/evalute/evalute?id=' + e.currentTarget.id,

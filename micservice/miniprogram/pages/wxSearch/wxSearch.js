@@ -151,7 +151,6 @@ Page({
     .get({
       success: function (res) {
         res.data = that.data.AnalyseData.concat(res.data)
-     //   console.log('AnalyseData', res.data)
         that.setData({
           AnalyseData: res.data,
           loadMore: true, //加载中,

@@ -1,0 +1,82 @@
+
+<view class="search-section" bindtap="onSearchFn">
+    <view class="search-pancel">
+      <input  bindinput="wxSearchInput" value="{{wxSearchData.value}}" 
+      class="search-input" placeholder="搜索" disabled="true" confirm-type="search"/>
+      <image src="/images/icon/sacn.png"></image>
+    </view>
+</view>
+
+<view class="header-section">
+  <view class="select {{select==1?'selected':''}}" bindtap="onAddtask">
+  <text>待办</text>
+  </view>
+  <view class="select {{select==2?'selected':''}}" bindtap="onTasks">
+  <text>已办</text>
+  </view>
+</view>
+
+<view class="loading-section" wx:if="{{loading}}">
+    <image class="loading" src="/images/loading.gif" ></image>
+</view>
+
+<view wx:else>
+  <view wx:if="{{select==1}}" class="tasks-section">
+    <view class="loading-section" wx:if="{{loading}}">
+      <image class="loading" src="/images/loading.gif" ></image>
+    </view>
+    <view wx:if="{{istask}}">
+      <view wx:for="{{tasks}}" wx:key="this" wx:for-item="info" class="tasks">
+          <view class="tasks-item-sections">
+              <view  class="tasks-item-section">
+                  <view class="tasks-item-department">
+                    <view>部门：{{info.department}}</view>
+                  </view>
+                  <view class="tasks-item-time">
+                      开始时间：{{info.starttime}}
+                  </view>
+                  <view class="tasks-item-question">
+                      问题描述：{{info.tasks}}
+                  </view> 
+              </view>
+          </view>
+      </view>
+    </view>
+    <view wx:else>
+        <view>暂无数据</view>
+    </view>
+  </view>
+
+
+  <view wx:if="{{select==2}}" class="tasks-section">
+
+    <view wx:if="{{istask}}">
+      <view wx:for="{{tasks}}" wx:key="this" wx:for-item="info" class="tasks">
+          <view class="tasks-item-sections">
+              <view  class="tasks-item-section">
+                  <view class="tasks-item-department">
+                    <view>部门：{{info.department}}</view>
+                  </view>
+                  <view class="tasks-item-time">
+                      开始时间：{{info.starttime}}
+                  </view>
+                  <view class="tasks-item-question">
+                      问题描述：{{info.tasks}}
+                  </view> 
+                  <view class="tasks-item-score">
+                    评价：{{info.tasks_evalute.text}}
+                  </view>
+              </view>
+          </view>
+      </view>
+    </view>
+    <view wx:else>
+        <view>暂无数据</view>
+    </view>
+  </view>
+
+</view>
+
+<view class="floot-section">
+  <text>没有更多数据了</text>
+</view>

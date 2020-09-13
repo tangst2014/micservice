@@ -6,28 +6,38 @@
       <image src="/images/icon/sacn.png"></image>
     </view>
 </view>
-<view class="container" bindtap="onHead">
+<view class="container-section" bindtap="onHead">
   <image class="background" src="/images/123.jpg" mode="widthFix"></image>
 </view>
 
-<block wx:if="{{istask}}">
-<view wx:for="{{tasks}}" wx:key="this" wx:for-item="info">
-    <view class="userEval">
-        <view  class="userEvalutes">
-            <view class="userEvalutes-department">
+<view class="loading-section" wx:if="{{loading}}">
+    <image class="loading" src="/images/loading.gif" ></image>
+</view>
+
+<view wx:if="{{!loading}}" class="tasks-section">
+<view wx:for="{{tasks}}" wx:key="this" wx:for-item="info" class="tasks">
+    <view class="tasks-item-sections">
+        <view  class="tasks-item-section">
+            <view class="tasks-item-department">
               <view>部门：{{info.department}}</view>
             </view>
-            <view class="userEvalutes-time">
+            <view class="tasks-item-time">
                 开始时间：{{info.starttime}}
             </view>
-            <view class="userEvalutes-tasks">
+            <view class="tasks-item-question">
                 问题描述：{{info.tasks}}
             </view> 
           <!-- <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">评价</button> -->
         </view>
     </view>
 </view>
-</block>
-<block wx:else>
+</view>
+<view wx:if="{{tasks.length==0}}">
     <view>暂无数据</view>
-</block>
+</view>
+
+
+<view class="floot-section">
+  <text>没有更多数据了</text>
+</view>
+

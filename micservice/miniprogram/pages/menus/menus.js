@@ -39,7 +39,7 @@ Page({
     }else{
       items[2].checked = true
     }
-    console.log('items',items)
+ 
     that.setData({
       items:items
     })

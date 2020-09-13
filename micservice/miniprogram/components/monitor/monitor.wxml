@@ -14,7 +14,13 @@
     <view>{{marks.markval}}<text>{{marks.count}}</text></view>
   </view>
 </view>
-<view class="userEval">
+
+<view class="loading-section" wx:if="{{loading}}">
+  <image class="loading" src="/images/loading.gif" ></image>
+</view>
+
+
+<view class="userEval" wx:else>
 <block wx:if="{{userEvalute.length>0}}">
   <view wx:for="{{userEvalute}}" wx:key="index" wx:for-item="info" class="userEvalutes">
       <view class="userEvalutes-time">

@@ -56,7 +56,9 @@
 
 }
 .userEval .userEvalutes{
-  margin: 30rpx 0;
+  margin: 30rpx 0rpx;
+  padding: 10rpx 20rpx;
+  box-shadow: 1px 1px 3px 0px;
 }
 
 .userEval .userEvalutes .userEvalutes-tasks-evalute{

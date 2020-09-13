@@ -13,7 +13,7 @@
 </view>
 
 <view wx:if="{{select==1}}" >
-   <view wx:for="{{tasks}}" wx:key="this" wx:for-item="info">
+   <view wx:for="{{addtask}}" wx:key="this" wx:for-item="info">
     <view class="userEval">
       <block wx:if="{{tasks.length>0}}">
         <view class="userEval-department">
@@ -59,6 +59,6 @@
   </view>
 </view>
 
-<navigator url="/pages/login/login" class="login" wx:if="{{openid==''}}">
+<navigator url="/pages/login/login" class="login" wx:if="{{openid}}">
 登录
 </navigator>

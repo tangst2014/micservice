@@ -1,4 +1,5 @@
-/* miniprogram/pages/index/index.wxss */
+
+
 .search-section{
   height: 100%;
   border-top: 1px #eee solid;
@@ -27,6 +28,31 @@
   height: 50rpx;
 
 }
+
+.header-section{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  font-size: 33rpx;
+  font-weight: bold;
+}
+
+.header-section .selected{
+  padding: 2rpx 30rpx 2rpx 30rpx;
+  border-bottom: rgb(195,168,105) solid 10rpx;
+
+}
+
+.header-section .unselected{
+  padding: 2rpx 30rpx 2rpx 30rpx;
+  background-color: #f6f6f6;
+  color: black;
+}
+
+
 
 .tasks-section{
   margin-bottom: 40rpx;
@@ -70,9 +96,12 @@
 }
 .tasks-item-sections .tasks-item-section .tasks-item-question{
 
+  font-size: 35rpx;
+}
+.tasks-item-sections .tasks-item-section .tasks-item-score{
+  color: rgb(170, 112, 5);
   font-size: 40rpx;
 }
-
 
 
 .floot-section{
@@ -80,3 +109,4 @@
   display: flex;
   justify-content: center;
 }
+

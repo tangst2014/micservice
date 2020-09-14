@@ -11,17 +11,18 @@
   <image class="background" src="/images/123.jpg" mode="widthFix"></image>
 </view>
 
-<view class="loading-section" wx:if="{{loading}}">
+<view class="loading-section" wx:if="{{!loading}}">
     <image class="loading" src="/images/loading.gif" ></image>
 </view>
 
-<view wx:if="{{!loading}}" class="tasks-section">
+<view wx:if="{{loading}}" class="tasks-section">
 <view wx:for="{{tasks}}" wx:key="this" wx:for-item="info" class="tasks">
-        <view class="tasks-item-header">
+  <block>
+      <view class="tasks-item-header">
             <view wx:if="index<=9">0{{index+1}}</view>
             <view wx:else>{{index+1}}</view>
         </view>
-        <view class="tasks-item-sections">
+        <view class="tasks-item-sections" data-id="{{info._id}}" bindtap="onDoneTask">
         <view  class="tasks-item-section">
             
             <view class="tasks-item-department">
@@ -36,6 +37,7 @@
           <!-- <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">评价</button> -->
         </view>
     </view>
+  </block>
         
 </view>
 </view>
@@ -46,4 +48,25 @@
 <view class="floot-section">
   <text>没有更多数据了</text>
 </view>
+
+
+
+<!-- modal  -->
+  <view class="modal modal-bottom-dialog" hidden="{{hideFlag}}">
+    <view class="modal-cancel" bindtap="hideModal"></view>
+    <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+      <!--  -->
+      <view class='Mselect'>
+        <view wx:for="{{optionList}}" wx:key="unique"  bindtap='getOption'>
+          {{item}}
+        </view>
+      </view>
+      <view></view>
+      <view class='Mcancel' bindtap='mCancel'>
+        <text>取消</text>
+      </view>
+ 
+    </view>
+  </view>
+
 

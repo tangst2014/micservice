@@ -16,6 +16,7 @@ App({
       
     }
 
+
     var openid = wx.getStorageSync('openid')
     if (openid){
       that.globalData._openid = openid
@@ -25,10 +26,17 @@ App({
     if(menucheck){
         that.globalData.onmenu = menucheck
     }
+
+    var addtasks = wx.getStorageSync('get-all-addtask')
+    if (addtasks) {
+      that.allAddTask = addtasks
+    }
+
   },
   globalData : {
     userInfo: null,
     onmenu: 3,  //切换菜单，1:管理员；2:维护人员 3：普通员工
     _openid:''  //用户openid
-  }
+  },
+  allAddTask:[]  //新添加的任务
 })

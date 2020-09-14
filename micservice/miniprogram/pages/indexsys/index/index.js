@@ -20,6 +20,8 @@ Page({
     /* 扫码数据 */
     scanRs:{},
 
+    istodo:false,
+
   },
 
   /* ColorUI页面跳转方式 */
@@ -45,7 +47,7 @@ Page({
       ...
     */
     console.log('indexsys _openid', app._openid)
-    console.log('menus', menus)
+  
     var that = this
     options.roleId = app.onmenu;
     /* roleId 1:管理员；2:维护人员 3：普员工*/
@@ -135,7 +137,7 @@ Page({
         }
 
       })
-
+ 
     if (app._openid){
       // 获取本人新添加的任务
       getaddtask
@@ -144,12 +146,11 @@ Page({
         })
         .get()
         .then(res => {
-   
-          console.log('my addtask', res.data)
           if (res.data.length > 0) {
-
+            console.log('getaddtask', res.data)
             that.setData({
-              addtask: res.data
+              addtask: res.data,
+              istodo:true
             })
 
             wx.setStorage({

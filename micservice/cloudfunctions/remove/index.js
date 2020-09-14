@@ -8,17 +8,13 @@ const db = cloud.database()
 const _ = db.command
 // 云函数入口函数
 exports.main = async (event, context) => {
-  return await db.collection('tasks').doc(event._id).update({
-    data: {
-      // 更新的字段
-      evaluteSts:event.evaluteSts,
-      tasks_evalute: event.tasks_evalute
-    },
-    success: function (res) {
-      console.log(res.data)
-      console.log(event.lists)
-    }
-  })
+
+  
+  try{
+    return await db.collection('addtask').doc(event._id).remove()
+  }catch(e){
+    console.log('remove',e)
+  }
   // return {
   //   event,
   //   openid: wxContext.OPENID,

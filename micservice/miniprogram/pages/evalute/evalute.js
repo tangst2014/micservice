@@ -128,7 +128,7 @@ Page({
         name: 'update',
         data: {
           _id: that.data.taskid,
-          status:true,
+          evaluteSts:true,
           tasks_evalute: tasks_evalute
         },
         success: res => { },

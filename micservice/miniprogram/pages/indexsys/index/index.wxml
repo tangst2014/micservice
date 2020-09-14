@@ -9,7 +9,10 @@
 </view>
 
 <datas wx:if="{{PageCur=='datas'}}"></datas>
-<todo wx:if="{{PageCur=='todo'}}"></todo>
+<view wx:if="{{istodo}}">
+  <todo wx:if="{{PageCur=='todo'}}" loading></todo>
+</view>
+
 <done wx:if="{{PageCur=='done'}}"></done>
 <netindex wx:if="{{PageCur=='netindex'}}"></netindex>
 <maintenance wx:if="{{PageCur=='maintenance'}}"></maintenance>

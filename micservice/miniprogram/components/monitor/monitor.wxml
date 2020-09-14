@@ -39,14 +39,15 @@
             {{info.tasks_evalute.userInfo.nickName}}</view>
             <view><text>{{info.tasks_evalute.time}}</text></view>
           </view>
-          <view class="star">服务评分：<image mode="aspectFit" src="/images/icon/{{'star'+info.tasks_evalute.star}}.png"></image></view>
-          <!-- <view class="hotevalute">
-            <block wx:for="{{info.tasks_evalute.hotevalute}}" wx:key="index">
-              <view class="hotevalute-item">{{item}}</view>
-            </block>
-          </view> -->
          
-          <view>{{info.tasks_evalute.text}}</view>
+          <view wx:if="{{info.evaluteSts}}">
+                <view class="star">服务评分：<image mode="aspectFit" src="/images/icon/{{'star'+info.tasks_evalute.star}}.png"></image></view>
+                <view>{{info.tasks_evalute.text}}</view>
+          </view>
+          <view wx:else>
+             未评价
+          </view>
+         
           
       </view>
   </view>

@@ -39,7 +39,9 @@
       <block wx:if="{{tasks.length>0}}">
         <view class="userEval-department">
             <view>部门：{{info.department}}</view>
-            <view wx:if="{{info.status==false}}" bindtap="bindGetUserInfo" id="{{info._id}}">去评价</view> 
+            <view wx:if="{{!info.evaluteSts}}">
+                <view  bindtap="bindGetUserInfo" id="{{info._id}}">去评价</view> 
+            </view>     
         </view>
         <view class="userEval-time">
             开始时间：{{info.starttime}}
@@ -48,9 +50,13 @@
             问题描述：{{info.tasks}}
         </view> 
 
-       <view wx:if="{{info.status==true}}">
-              评价：{{info.tasks_evalute.text}}
-       </view>
+        <view wx:if="{{info.evaluteSts}}">
+            评价：{{info.tasks_evalute.text}}
+        </view>
+        <view wx:else>
+          未评价
+        </view>
+
       </block>
       <block wx:else>
         <view>暂无数据</view>

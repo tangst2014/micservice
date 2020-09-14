@@ -59,9 +59,10 @@ Component({
         selectid: index,
         showitem: index,
       })
+      console.log('user._openid',user._openid)
       tasks
         .where({
-          _openid: user._openid
+          _wnopenid: user._openid
         })
         .get()
         .then(res => {
@@ -71,6 +72,13 @@ Component({
             userEvalute: taskmarks,
           })
           var az = '';
+          console.log('taskmarks',taskmarks)
+          if(taskmarks.length==0){
+            that.setData({
+              taskmarksclass: []
+            })
+            return
+          }
           for (var i = 0; i < taskmarks.length; i++) {
             for (let j = 0; j < taskmarks[i].tasks_evalute.hotevalute.length; j++) {
               if (taskmarksclass.length > 0) {

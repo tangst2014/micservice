@@ -64,7 +64,12 @@
                       问题描述：{{info.tasks}}
                   </view> 
                   <view class="tasks-item-score">
-                    评价：{{info.tasks_evalute.text}}
+                     <view wx:if="{{info.evaluteSts}}">
+                        评价：{{info.tasks_evalute.text}}
+                     </view>
+                     <view wx:else>
+                        未评价
+                     </view>
                   </view>
               </view>
           </view>

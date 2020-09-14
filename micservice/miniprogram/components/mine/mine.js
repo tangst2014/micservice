@@ -31,11 +31,12 @@ Component({
   data: {
     // tasks: [],
     select: 1,
-    openid: ""
   },
 
   ready() {
-    
+    console.log('openid',this.data.openid)
+    console.log('select',this.data.select)
+    console.log('addtask',this.properties.addtask)
     // var addtask = wx.getStorageSync('get-my-addtask')
     // var tasks = wx.getStorageSync('get-my-tasks')
     // var temp = [addtask, tasks]

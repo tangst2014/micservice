@@ -97,7 +97,7 @@ Page({
   freshTasks:function(){
     var that = this
 
- 
+    console.log('app._openid freshTasks',app._openid)
     if (app._openid) {
       that.setData({
         openid: true
@@ -146,8 +146,7 @@ Page({
         })
         .get()
         .then(res => {
-          if (res.data.length > 0) {
-            console.log('getaddtask', res.data)
+           console.log('getaddtask', res.data)
             that.setData({
               addtask: res.data,
               istodo:true
@@ -157,8 +156,6 @@ Page({
               key: 'get-my-addtask',
               data: res.data
             })
-
-          }
 
         })
 
